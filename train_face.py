@@ -75,9 +75,9 @@ init = tf.global_variables_initializer()
 sess = tf.InteractiveSession()
 sess.run(init)
 
-imgs_test,labs_test=data_307.next_batch_test(50)
-for i in range(3000):
-    images,labs = data_307.next_batch(50)
+imgs_test,labs_test=data_307.next_batch_test(20)
+for i in range(5000):
+    images,labs = data_307.next_batch(20)
     _,loss,summary = sess.run([train_step, cross_entropy, merged_summary_op],feed_dict={x:images,y_:labs, keep_prob:0.5})
     acc = accuracy.eval({x:imgs_test, y_:labs_test, keep_prob:1.0})
     print("the %d step:,acc:" % i ,acc)

@@ -16,7 +16,6 @@ pengsurong="./data/pengsurong/"  #000100
 liqiang="./data/liqiang/"        #000010
 xialing="./data/xialing/"        #000001      
 
-
 libs={0:[husiwang,"100000"],1:[liuhao,"010000"],2:[lumengjie,"001000"],3:[pengsurong,"000100"],4:[liqiang,"000010"],5:[xialing,"000001"]}
 
 def random_without_same(mins,maxs):
@@ -34,7 +33,7 @@ def next_batch(count):
     for _ in range(count):
         try:
             people_id=random_without_same(0,6)
-            img_id=random_without_same(50,100)
+            img_id=random_without_same(10,20)
             img=cv2.imread(libs[people_id][0]+str(img_id)+".jpg")
             img = cv2.resize(img, (size, size))
             imgs.append(img)
@@ -49,7 +48,7 @@ def next_batch_test(count):
     for _ in range(count):
         try:
             people_id=random_without_same(0,6)
-            img_id=random_without_same(0,50)
+            img_id=random_without_same(0,10)
             img=cv2.imread(libs[people_id][0]+str(img_id)+".jpg")
             img = cv2.resize(img, (size, size))
             imgs.append(img)
